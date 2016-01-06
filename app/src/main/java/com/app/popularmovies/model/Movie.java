@@ -8,6 +8,7 @@ import android.os.Parcelable;
  */
 public class Movie implements Parcelable {
 
+    private String id;
     private String name;
     private String rating;
     private String releaseDate;
@@ -24,6 +25,7 @@ public class Movie implements Parcelable {
     private boolean[] booleanArray = new boolean[]{this.adult, this.video};
 
     public Movie(Parcel in) {
+        this.id = in.readString();
         this.name = in.readString();
         this.rating = in.readString();
         this.releaseDate = in.readString();
@@ -43,6 +45,13 @@ public class Movie implements Parcelable {
 
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -147,6 +156,7 @@ public class Movie implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(this.id);
         parcel.writeString(this.name);
         parcel.writeString(this.rating);
         parcel.writeString(this.releaseDate);

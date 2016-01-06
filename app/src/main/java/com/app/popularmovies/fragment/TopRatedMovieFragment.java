@@ -83,7 +83,7 @@ public class TopRatedMovieFragment extends Fragment implements onTaskCompleted, 
                 if (this.currentVisibleItemCount > 0 && this.currentScrollState == SCROLL_STATE_IDLE) {
                     pageCount++;
                     CommonAsyncTask asyncTask = new CommonAsyncTask(TopRatedMovieFragment.this, Constants.TOP_RATED_REQUEST);
-                    asyncTask.execute(pageCount + "", "vote_average.desc");
+                    asyncTask.execute(pageCount + "");
                 }
             }
         });

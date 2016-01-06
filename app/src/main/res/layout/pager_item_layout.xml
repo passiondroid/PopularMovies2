@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <TextView
+            android:id="@+id/overviewTV"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:padding="10dp"
+            android:textAlignment="center"
+            android:textSize="18sp"
+            android:text="August 6 could be a surprisingly good day at work, but there's the risk of picking a fight later at home. Temper, temper! It's possible to have too much fun around the New Moon on August 14, so pace yourself. Sweetness and luxury are more appealing than wildness, so unless you overspend, you should be fine. Give your heart its desire for a few days. The Full Moon on August 29 could be full of crazy dreams and impossible aspirations. Enjoy the lofty feelings. You won't neglect your daily stuff, and perhaps a sweet fantasy will brighten your mood."/>
+    </ScrollView>
+

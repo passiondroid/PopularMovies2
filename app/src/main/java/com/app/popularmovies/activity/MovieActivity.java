@@ -109,12 +109,15 @@ public class MovieActivity extends AppCompatActivity implements ActionBar.TabLis
             else if(position==1) {
                 return TopRatedMovieFragment.newInstance();
             }
+            else if(position==2) {
+                return TopRatedMovieFragment.newInstance();
+            }
             return null;
         }
 
         @Override
         public int getCount() {
-            return 2;
+            return 3;
         }
 
         @Override
@@ -125,10 +128,10 @@ public class MovieActivity extends AppCompatActivity implements ActionBar.TabLis
                     return getString(R.string.title_section1).toUpperCase(l);
                 case 1:
                     return getString(R.string.title_section2).toUpperCase(l);
+                case 2:
+                    return getString(R.string.title_section3).toUpperCase(l);
             }
             return null;
         }
     }
-
-
 }

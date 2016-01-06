@@ -102,7 +102,7 @@ public class PopularMovieFragment extends Fragment implements onTaskCompleted, A
         }
         if(movieList==null || movieList.size()==0) {
             CommonAsyncTask asyncTask = new CommonAsyncTask(this, Constants.MOST_POPULAR_REQUEST);
-            asyncTask.execute(pageCount+"", "popularity.desc");
+            asyncTask.execute(pageCount+"");
         }
     }
 
