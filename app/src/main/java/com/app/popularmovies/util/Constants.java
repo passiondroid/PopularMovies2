@@ -18,6 +18,10 @@ public interface Constants {
     public int VIDEO_TRAILER_REQUEST = 3;
     public int MOVIE_REVIEWS_REQUEST = 4;
 
+    public String FRAGMENT_TYPE_FAVORITE = "FAVORITE";
+
+
+
 //    public String REQUEST_TYPE = "POPULAR MOVIE";
 //    public String PAGE_NUMBER = "PAGE_NUMBER";
 

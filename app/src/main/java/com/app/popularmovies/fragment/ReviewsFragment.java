@@ -45,9 +45,8 @@ public class ReviewsFragment extends ListFragment implements onTaskCompleted {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         if (getArguments() != null) {
-            //mParam = getArguments().getString(MOVIE_ID);
+            mParam = getArguments().getString(MOVIE_ID);
             CommonAsyncTask asyncTask = new CommonAsyncTask(this, Constants.MOVIE_REVIEWS_REQUEST);
             asyncTask.execute();
         }
@@ -80,7 +79,5 @@ public class ReviewsFragment extends ListFragment implements onTaskCompleted {
             Toast.makeText(getActivity(), "Sorry, some error occured", Toast.LENGTH_SHORT).show();
         }
     }
-
-
 
 }

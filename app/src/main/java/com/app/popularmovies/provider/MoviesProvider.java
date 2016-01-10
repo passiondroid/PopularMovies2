@@ -82,10 +82,7 @@ public class MoviesProvider extends ContentProvider {
         switch (match) {
             case MOVIE: {
                 long _id = db.insert(MoviesContract.MovieEntry.TABLE_NAME, null, values);
-                if ( _id > 0 )
-                    returnUri = MoviesContract.MovieEntry.buildMoviesUri(_id);
-                else
-                    throw new android.database.SQLException("Failed to insert row into " + uri);
+                returnUri = MoviesContract.MovieEntry.buildMoviesUri(_id);
                 break;
             }
             default:

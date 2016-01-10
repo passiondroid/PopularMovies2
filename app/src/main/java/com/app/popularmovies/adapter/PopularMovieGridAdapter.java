@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 import com.app.popularmovies.R;
 import com.app.popularmovies.model.Movie;
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -60,11 +60,13 @@ public class PopularMovieGridAdapter extends BaseAdapter {
         }
 
         holder.movieNameTV.setText(movieList.get(i).getName());
-        holder.movieRatingTV.setText(movieList.get(i).getVoteAverage()+"");
-        Picasso.with(mContext)
+        int x = getRoundedNumber(movieList.get(i).getVoteAverage());
+        holder.movieRatingTV.setText(x+"/10");
+
+        Glide.with(mContext)
                 .load(movieList.get(i).getImageUrl())
                 .placeholder(R.drawable.placeholder)
-                .fit()
+                .crossFade()
                 .into(holder.movieIV);
 
         return convertView;
@@ -75,4 +77,10 @@ public class PopularMovieGridAdapter extends BaseAdapter {
         TextView movieNameTV, movieRatingTV;
 
     }
+
+    public int getRoundedNumber(String number){
+        float value = Float.parseFloat(number);
+        return Math.round(value);
+    }
+
 }

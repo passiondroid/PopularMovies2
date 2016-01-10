@@ -11,17 +11,15 @@ import com.app.popularmovies.fragment.TrailerFragment;
 import com.app.popularmovies.model.Movie;
 
 /**
- * Created by Azhar on 22-Aug-15.
+ * Created by Arif on 22-Aug-15.
  */
 public class SwipePagerAdapter extends FragmentPagerAdapter {
 
-    //private HoroscopeSign horoscopeSign;
     private Context mContext;
     private Movie movie;
 
     public SwipePagerAdapter(Context mContext, FragmentManager fm,Movie movie) {
         super(fm);
-        //this.horoscopeSign = DataUtility.getInstance().getHoroscopeSign();
         this.mContext = mContext;
         this.movie = movie;
     }

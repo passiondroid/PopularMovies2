@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.app.popularmovies.R;
 import com.app.popularmovies.activity.DetailActivity;
+import com.app.popularmovies.activity.MovieActivity;
 import com.app.popularmovies.adapter.PopularMovieGridAdapter;
 import com.app.popularmovies.interfaces.onTaskCompleted;
 import com.app.popularmovies.model.Movie;
@@ -24,15 +25,14 @@ import com.app.popularmovies.util.Constants;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * A placeholder fragment containing a simple view.
- */
 public class TopRatedMovieFragment extends Fragment implements onTaskCompleted, AdapterView.OnItemClickListener  {
 
     private List<Movie> movieList= new ArrayList<>();
     private PopularMovieGridAdapter adapter;
     private GridView gridView;
     private int pageCount=1;
+    private boolean itemClicked = false;
+    private static final String DETAILFRAGMENT_TAG = "DFTAG";
 
     /**
      * Returns a new instance of this fragment for the given section
@@ -104,6 +104,7 @@ public class TopRatedMovieFragment extends Fragment implements onTaskCompleted, 
             CommonAsyncTask asyncTask = new CommonAsyncTask(this, Constants.TOP_RATED_REQUEST);
             asyncTask.execute("1","vote_average.desc");
         }
+        getActivity().setTitle("Top Rated Movies");
     }
 
     @Override
@@ -111,6 +112,12 @@ public class TopRatedMovieFragment extends Fragment implements onTaskCompleted, 
         if(null!=object) {
             movieList.addAll((List<Movie>) object);
             adapter.notifyDataSetChanged();
+            if(((MovieActivity)getActivity()).mTwoPane && !itemClicked) {
+                getActivity().getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.detailContainer, DetailFragment.newInstance(movieList.get(0)), DETAILFRAGMENT_TAG)
+                        .commit();
+                itemClicked = true;
+            }
         }else{
             Toast.makeText(getActivity(), "Sorry, some error occured", Toast.LENGTH_SHORT).show();
         }
@@ -118,9 +125,15 @@ public class TopRatedMovieFragment extends Fragment implements onTaskCompleted, 
 
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-        Intent intent = new Intent(getActivity(), DetailActivity.class);
-        intent.putExtra("movie",movieList.get(i));
-        startActivity(intent);
+        if(((MovieActivity)getActivity()).mTwoPane) {
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.detailContainer, DetailFragment.newInstance(movieList.get(i)), DETAILFRAGMENT_TAG)
+                    .commit();
+        }else {
+            Intent intent = new Intent(getActivity(), DetailActivity.class);
+            intent.putExtra("movie", movieList.get(i));
+            startActivity(intent);
+        }
     }
 
     @Override

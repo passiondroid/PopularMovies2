@@ -10,10 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.app.popularmovies.R;
-import com.app.popularmovies.model.Movie;
 import com.app.popularmovies.model.Trailer;
 import com.app.popularmovies.util.Constants;
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
 import java.util.List;
 
@@ -63,10 +62,11 @@ public class TrailerFragmentAdapter extends BaseAdapter {
         holder.trailerTV.setText("Trailer " + (i+1));
 
         if(trailerList.get(i).getSite().equalsIgnoreCase("YouTube")) {
-            System.out.println("======== "+Constants.YOU_TUBE_IMAGE_BASE_URL + trailerList.get(i).getKey() + "/0.jpg");
-            Picasso.with(mContext)
+
+            Glide.with(mContext)
                     .load(Constants.YOU_TUBE_IMAGE_BASE_URL + trailerList.get(i).getKey() + "/0.jpg")
-                    .fit()
+                    .fitCenter()
+                    .placeholder(R.color.trailer_color)
                     .into(holder.videoIV);
         }
 

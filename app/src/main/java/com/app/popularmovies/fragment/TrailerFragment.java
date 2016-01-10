@@ -83,11 +83,15 @@ public class TrailerFragment extends ListFragment implements onTaskCompleted {
             adapter.notifyDataSetChanged();
             if(trailerList.size()==0){
                 setEmptyText("No Trailers Found");
+            }else{
+                ((DetailFragment)getParentFragment()).setShareIntent("Watch the trailer - "+Constants.YOU_TUBE_BASE_URL + trailerList.get(0).getKey());
             }
         }else{
             Toast.makeText(getActivity(), "Sorry, some error occured", Toast.LENGTH_SHORT).show();
         }
     }
+
+
 
 
 
