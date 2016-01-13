@@ -9,7 +9,7 @@ public interface Constants {
     public String TRAILER_REVIEWS_BASE_URL = "http://api.themoviedb.org/3/movie";
     public String YOU_TUBE_IMAGE_BASE_URL = "http://i3.ytimg.com/vi/";
     public String YOU_TUBE_BASE_URL = "http://www.youtube.com/watch?v=";
-    public String API_KEY = "c07dd2aaa4c9e920c3b7bc4be62153f3";
+    public String API_KEY = "YOUR_API_KEY";
 
     public String IMAGE_PATH_BASE_URL = "http://image.tmdb.org/t/p/w185/";
     public String BACKDROP_IMAGE_PATH_BASE_URL = "http://image.tmdb.org/t/p/w342/";
