@@ -40,12 +40,6 @@ public class MovieActivity extends AppCompatActivity {
                 .commit();
     }
 
-    /*@Override
-    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
-        super.onCreateOptionsMenu(menu, inflater);
-        inflater.inflate(R.menu.menu_movie_fragment,menu);
-    }*/
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
